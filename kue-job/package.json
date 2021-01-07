@@ -1,0 +1,22 @@
+{
+  "name": "kue_jobs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jobs_kue.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trongnvv/kue_jobs.git"
+  },
+  "author": "trongnv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trongnvv/kue_jobs/issues"
+  },
+  "homepage": "https://github.com/trongnvv/kue_jobs#readme",
+  "dependencies": {
+    "kue": "^0.11.6"
+  }
+}

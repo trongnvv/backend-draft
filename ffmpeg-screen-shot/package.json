@@ -1,0 +1,22 @@
+{
+  "name": "take_screen_shots_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trongnvv/take_screen_shots_nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trongnvv/take_screen_shots_nodejs/issues"
+  },
+  "homepage": "https://github.com/trongnvv/take_screen_shots_nodejs#readme",
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2"
+  }
+}

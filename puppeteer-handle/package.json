@@ -1,0 +1,23 @@
+{
+  "name": "brower-puppeteer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "brower.js",
+  "dependencies": {
+    "puppeteer": "^1.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trongnvv/brower-puppeteer.git"
+  },
+  "author": "trongnv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trongnvv/brower-puppeteer/issues"
+  },
+  "homepage": "https://github.com/trongnvv/brower-puppeteer#readme"
+}
