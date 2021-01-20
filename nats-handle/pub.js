@@ -6,11 +6,15 @@ let nc = NATS.connect({ json: true });
 
 // create a subscription subject that the responding send replies to
 let inbox = NATS.createInbox();
-nc.publish('trongnv.hello', { trongnv: 'tnv' }, inbox);
+setInterval(() => {
+    nc.publish('trongnv.hello', { trongnv: 'tnv' }, inbox);
+}, 1000);
 nc.subscribe(inbox, (msg, reply, subject, sid) => {
-    console.log(msg, reply, subject, sid);
+    // console.log(msg, reply, subject, sid);
     console.log('the time is', msg);
 });
+
+
 
 // for (let index = 0; index < 100; index++) {
 
@@ -18,7 +22,6 @@ nc.subscribe(inbox, (msg, reply, subject, sid) => {
 //         console.log('Got a response in msg stream: ', msg)
 //     })
 // }
-
 
 nc.on('error', (err) => {
     console.log(err)
@@ -43,6 +46,15 @@ nc.on('reconnecting', () => {
 // reconnect callback provides a reference to the connection as an argument
 nc.on('reconnect', (nc) => {
     console.log(`reconnect to ${nc.currentServer.url.host}`)
+    let start = Date.now();
+    nc.flush(() => {
+
+        console.log('*************** flush ***************', Date.now() - start, 'ms');
+    });
+    // let start = Date.now();
+    // nc.flush(() => {
+    //     console.log('round trip completed in', Date.now() - start, 'ms');
+    // });
 })
 
 // emitted when the connection is closed - once a connection is closed

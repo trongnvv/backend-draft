@@ -13,57 +13,32 @@ const subscribe = (subject) => {
 
 const queue = (subject, queue) => {
     nc.subscribe(subject, { queue }, function (msg, reply, subject, sid) {
-        console.log('queue', msg);
+            console.log('queue', msg);
+
+        // test drain
+        // setInterval(() => {
+        //     console.log('queue', msg);
+        // }, 1000);
+        // nc.drain((err) => {
+        //     if (err) {
+        //         console.log('Nat:', err);
+        //     }
+        //     console.log('Nat connection is closed:', nc.closed);
+        // });
     })
 }
-nc.on('error', (err) => {
-    console.log(err)
-})
 
-// connect callback provides a reference to the connection as an argument
-nc.on('connect', (nc) => {
-    console.log(`connect to ${nc.currentServer.url.host}`)
-})
-
-// emitted whenever the client disconnects from a server
-nc.on('disconnect', () => {
-    console.log('disconnect')
-})
-
-// emitted whenever the client is attempting to reconnect
-nc.on('reconnecting', () => {
-    console.log('reconnecting')
-})
-
-// emitted whenever the client reconnects
-// reconnect callback provides a reference to the connection as an argument
-nc.on('reconnect', (nc) => {
-    console.log(`reconnect to ${nc.currentServer.url.host}`)
-})
-
-// emitted when the connection is closed - once a connection is closed
-// the client has to create a new connection.
-nc.on('close', function () {
-    console.log('close')
-})
-
-// emitted whenever the client unsubscribes
-nc.on('unsubscribe', function (sid, subject) {
-    console.log('unsubscribed subscription', sid, 'for subject', subject)
-})
-
-// emitted whenever the server returns a permission error for
-// a publish/subscription for the current user. This sort of error
-// means that the client cannot subscribe and/or publish/request
-// on the specific subject
-nc.on('permission_error', function (err) {
-    console.error('got a permissions error', err.message)
-})
+// nc.drain((err) => {
+//     if (err) {
+//         console.log('Nat:' ,err);
+//     }
+//     console.log('Nat connection is closed:', nc.closed);
+// });
 
 subscribe('trongnv.hello');
-subscribe('trongnv.*');
-subscribe('trongnv.>');
+// subscribe('trongnv.*');
+// subscribe('trongnv.>');
 
-queue('trongnv');
-queue('trongnv');
 queue('trongnv.>');
+// queue('trongnv');
+// queue('trongnv.>');
